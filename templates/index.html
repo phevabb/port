@@ -448,7 +448,8 @@ From bug fixes to updates, I provide ongoing support to meet the evolving needs 
 
 <div id="portfolio" class="container">
   <div class="row">
-    {% for project in projects %}
+    <!-- Instead of {% for project in projects %} -->
+{% for project in projects|dictsort:"title" %}
       <div class="col-md-6 col-lg-4 mb-4 d-flex align-items-stretch">
         <div class="portfolio-card w-100">
           <div class="card-image-container">
