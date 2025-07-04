@@ -1,81 +1,12 @@
+{% extends "base.html" %}
+
+{% load custom_TAGS %}
 {% load static %}
-<!DOCTYPE html>
-<html class="no-js" lang="en">
+{% get_all_projects as projects %}
 
 
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-<head>
-  <!-- Meta Tags -->
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Laralink">
-  <!-- Page Title -->
-  <title>Emmanuel - Personal Portfolio</title>
-  <!-- Favicon Icon -->
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
-  <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}" />
-  <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}" />
-  <link rel="stylesheet" href="{% static 'assets/css/lightgallery.min.css' %}" />
-  <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
-  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
-</head>
-
-<body id="home">
-  <!-- Start Header Section -->
-  <header class="st-site-header st-style1 st-sticky-header st-transparent-header">
-    <div class="st-main-header">
-      <div class="container">
-        <div class="st-main-header-in">
-          
-          <div style="margin-left: 1rem"></div>
-            <div class="st-nav">
-              <ul class="st-nav-list st-onepage-nav">
-                <li><a href="#home" class="st-smooth-move">Home</a></li>
-                <li><a href="#about" class="st-smooth-move">About</a></li>
-                <li><a href="#EXPERTISE" class="st-smooth-move">EXPERTISE</a></li>
-                <li><a href="#skill" class="st-smooth-move">Skill</a></li>
-       
-                <li><a href="#portfolio" class="st-smooth-move">Portfolio</a></li>
-
-                <li><a href="#contact" class="st-smooth-move">Contact</a></li>
-              </ul>
-              
-            </div>
-            <div style="margin-left: 1rem"></div>
-          
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- End Header Section -->
-
-  <!-- Start Hero Seciton -->
-  <section class="st-hero st-style2 st-bg st-dynamic-bg" data-src='{% static 'assets/img/hero-bg-2.jpg' %}'>
-    <div class="container">
-      <div class="st-hero-text">
-        <h1>Hi, I am <span>Emmanuel Aidoo</span></h1>
-        <p>I am a Python Django Developer with extensive experience in creating and maintaining dynamic web applications.<br> 
-I excel at utilizing Django's framework to deliver scalable and efficient solutions, integrating APIs, and optimizing performance.<br> 
-My strong background in Python, combined with my ability to work collaboratively with teams, allows me to produce high-quality code and contribute effectively to project success.<br> 
-</p>
-
-        <div class="st-hero-social-links">
-          
-          <a href="https://github.com/phevabb" class="st-social-btn" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github"></i>
-          </a>
-
-        </div>
-      </div>
-    </div>
-    <svg x="0px" y="0px" viewBox="0 186.5 1920 113.5" class="st-hero-shape">
-      <polygon points="-30,300 355.167,210.5 1432.5,290 1920,198.5 1920,300"></polygon>
-    </svg>
-  </section>
-  <!-- End Hero Seciton -->
+{% block content %}
 
   <!-- Start About Seciton -->
   <section id="about" class="st-about-wrap">
@@ -89,20 +20,15 @@ My strong background in Python, combined with my ability to work collaboratively
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 wow fadeInLeft">
-          <div class="st-about-img-wrap">
-            <div class="st-about-img st-dynamic-bg st-bg" data-src="{% static 'assets/img/section/emma.png' %}"></div>
-          </div>
-          <div class="st-height-b0 st-height-lg-b30"></div>
-        </div>
+
         <div class="col-lg-6">
           <div class="st-vertical-middle">
             <div class="st-vertical-middle-in">
               <div class="st-text-block st-style1">
-               
+
                 <h4 class="st-text-block-subtitle">Python Backend Developer (Django)</h4>
                 <div class="st-text-block-text">
-                
+
                 </div>
                 <ul class="st-text-block-details st-mp0">
                   <li><span>Languages</span> : <span>Python, Javascript</span></li>
@@ -115,7 +41,7 @@ My strong background in Python, combined with my ability to work collaboratively
                   <li><span>Freelance</span> : <span>Available</span></li>
                 </ul>
 
-                
+
               </div>
             </div>
           </div>
@@ -136,7 +62,8 @@ My strong background in Python, combined with my ability to work collaboratively
       <div class="st-height-b25 st-height-lg-b25"></div>
     </div>
 
-    <!-- Iconbox Container -->
+    <!-- Iconbox Containervvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv -->
+    <!-- Iconbox Containervvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv -->
 
     <div class="container">
       <div class="row">
@@ -279,7 +206,7 @@ My strong background in Python, combined with my ability to work collaboratively
             <h2 class="st-iconbox-title">Real-time Notification Systems</h2>
             <div class="st-iconbox-text">Engage users with
                 real-time updates, from dashboard notifications to instant alerts
-                for appointments and messages. Using Django Channels, I can integrate 
+                for appointments and messages. Using Django Channels, I can integrate
                 real-time communication seamlessly into your application.
 </div>
           </div>
@@ -298,9 +225,9 @@ My strong background in Python, combined with my ability to work collaboratively
               </svg>
             </div>
             <h2 class="st-iconbox-title">Security & Compliance</h2>
-            <div class="st-iconbox-text">Safeguard sensitive data with top-notch 
-                security practices. I ensure your application is secure and compliant 
-                with industry standards, 
+            <div class="st-iconbox-text">Safeguard sensitive data with top-notch
+                security practices. I ensure your application is secure and compliant
+                with industry standards,
                 protecting both your users and your business from vulnerabilities.
 </div>
           </div>
@@ -377,7 +304,7 @@ From bug fixes to updates, I provide ongoing support to meet the evolving needs 
     <div class="st-height-b100 st-height-lg-b80"></div>
   </section>
   <!-- End Service Seciton -->
-  
+
 
 
       <!-- Start Skill Seciton -->
@@ -390,7 +317,7 @@ From bug fixes to updates, I provide ongoing support to meet the evolving needs 
           </div>
           <div class="st-height-b25 st-height-lg-b25"></div>
         </div>
-    
+
         <div class="container">
           <div class="row">
             <div class="col-lg-6">
@@ -399,7 +326,7 @@ From bug fixes to updates, I provide ongoing support to meet the evolving needs 
                   <h2 class="st-skill-title"></h2>
 
 <div class="st-skill-subtitle">
-  
+
   Django Framework: Proficient in building scalable and maintainable web applications with Django. Experienced with Django’s built-in features such as authentication, admin panel, ORM, and forms.
   <br><br>
   Python: Strong knowledge of Python, including object-oriented programming, data structures, and libraries like Matplotlib, Pandas, and Requests for data processing.
@@ -412,34 +339,40 @@ From bug fixes to updates, I provide ongoing support to meet the evolving needs 
                 </div><!-- .st-skill-heading -->
               </div>
             </div>
-    
+
             <!-- Progressbar -->
-    
+
             <div class="col-lg-6">
               <div class="st-height-b0 st-height-lg-b30"></div>
               <div class="st-progressbar-wrap">
+
                 <div class="st-single-progressbar">
                   <div class="st-progressbar-heading">
                     <h3 class="st-progressbar-title">Django</h3>
                     <div class="st-progressbar-percentage wow fadeInLeft" data-wow-duration="1.5s"
-                        data-wow-delay="0.5s">95%</div>
+                        data-wow-delay="0.5s">97%</div>
                   </div>
                   <div class="st-progressbar" data-progress="95">
                     <div class="st-progressbar-in wow fadeInLeft"></div>
                   </div>
                 </div><!-- .st-single-progressbar -->
+
                 <div class="st-height-b30 st-height-lg-b20"></div>
+
                 <div class="st-single-progressbar">
                   <div class="st-progressbar-heading">
-                    <h3 class="st-progressbar-title">Django REST Framework</h3>
+                    <h3 class="st-progressbar-title">Django Rest Framework</h3>
                     <div class="st-progressbar-percentage wow fadeInLeft" data-wow-duration="1.5s"
-                        data-wow-delay="0.5s">75%</div>
+                        data-wow-delay="0.5s">96%</div>
                   </div>
-                  <div class="st-progressbar" data-progress="75">
+                  <div class="st-progressbar" data-progress="96">
                     <div class="st-progressbar-in wow fadeInLeft"></div>
                   </div>
                 </div><!-- .st-single-progressbar -->
+
+
                 <div class="st-height-b30 st-height-lg-b20"></div>
+
                 <div class="st-single-progressbar">
                   <div class="st-progressbar-heading">
                     <h3 class="st-progressbar-title">Python Programming</h3>
@@ -451,6 +384,7 @@ From bug fixes to updates, I provide ongoing support to meet the evolving needs 
                   </div>
                 </div><!-- .st-single-progressbar -->
                 <div class="st-height-b30 st-height-lg-b20"></div>
+
                 <div class="st-single-progressbar">
                   <div class="st-progressbar-heading">
                     <h3 class="st-progressbar-title">Database Design and ORM</h3>
@@ -461,7 +395,9 @@ From bug fixes to updates, I provide ongoing support to meet the evolving needs 
                     <div class="st-progressbar-in wow fadeInLeft"></div>
                   </div>
                 </div><!-- .st-single-progressbar -->
+
                 <div class="st-height-b30 st-height-lg-b20"></div>
+
                 <div class="st-single-progressbar">
                   <div class="st-progressbar-heading">
                     <h3 class="st-progressbar-title">Debugging</h3>
@@ -473,6 +409,19 @@ From bug fixes to updates, I provide ongoing support to meet the evolving needs 
                   </div>
                 </div><!-- .st-single-progressbar -->
                 <div class="st-height-b30 st-height-lg-b20"></div>
+
+                <div class="st-single-progressbar">
+                  <div class="st-progressbar-heading">
+                    <h3 class="st-progressbar-title">Search Engine Optimization (SEO)</h3>
+                    <div class="st-progressbar-percentage wow fadeInLeft" data-wow-duration="1.5s"
+                        data-wow-delay="0.5s">99%</div>
+                  </div>
+                  <div class="st-progressbar" data-progress="95">
+                    <div class="st-progressbar-in wow fadeInLeft"></div>
+                  </div>
+                </div><!-- .st-single-progressbar -->
+                <div class="st-height-b30 st-height-lg-b20"></div>
+
                 <div class="st-single-progressbar">
                   <div class="st-progressbar-heading">
                     <h3 class="st-progressbar-title">Version Control (Git)</h3>
@@ -488,203 +437,58 @@ From bug fixes to updates, I provide ongoing support to meet the evolving needs 
           </div>
         </div>
       </section>
+<br>
       <!-- End Skill Seciton -->
-  
-  
-  
-  
-  
-
-  
-
-  
-  <!-- Start Portfolio Seciton -->
-
-  <section id="portfolio">
-    <div class="st-height-b100 st-height-lg-b80"></div>
-    <div class="container">
-      <div class="st-section-heading st-style1">
-        <h4 class="st-section-heading-title">PORTFOLIOS</h4>
-        <h2 class="st-section-heading-subtitle">PORTFOLIOS</h2>
-      </div>
-      <div class="st-height-b25 st-height-lg-b25"></div>
-    </div>
-    <div class="container">
-      <div class="row">
 
 
 
 
 
-          <!-- PIMS -->
-              <div class="portfolio-section">
-                  <div class="card">
-                    <div class="card-image">
-                      <img src="{% static 'assets/img/portfolio/portfolio1.jpg' %}" alt="Patient Management System">
-                    </div>
-                    <div class="card-content">
-                      <h5>Patient Information Management System (PIMS)</h5>
-                      <p>This system is designed to manage patient information efficiently within a hospital setting. It includes modules for registration, appointment scheduling, and patient records management.</p>
-                      <div class="login-info">
-                        <p><strong>Logins:</strong></p>
-                        <p>Receptionist ID: <code>4444</code><br> Password: <code>4444</code></p><hr>
-                        <p>OPD ID: <code>0000</code><br> Password: <code>0000</code></p><hr>
-                         <p>Doctor's ID: <code>10710</code><br> Password: <code>10710</code></p>
-                      </div>
-                      <a href="https://bulichanga.pythonanywhere.com/" target="_blank" class="view-project-btn">View Project</a>
-                    </div>
-                  </div>
-              </div>
 
 
-          <!-- BLOG -->
-          <!-- BLOG -->
 
-          <div class="portfolio-section">
-              <div class="card">
-                <div class="card-image">
-                  <img src="{% static 'assets/img/portfolio/portfolio1.jpg' %}" alt="Patient Management System">
-                </div>
-                <div class="card-content">
-                  <h5>Blog Applications</h5>
-                  <p>This Blog Application allows users to comment on posts, share them via email, and search for blogs by keywords or topics. It
-                      also lets users view who has commented on each post, enhancing engagement and interaction..</p>
-                  <div class="login-info">
-
-                  </div>
-                  <a href="https://ekaidoo4.pythonanywhere.com/" target="_blank" class="view-project-btn">View Project</a>
-                </div>
-              </div>
-          </div>
-  
-
-<!-- e-commerce -->
-<!-- https://aidooemmanuel3kwame.pythonanywhere.com/ -->
-          <div class="portfolio-section">
-              <div class="card">
-                <div class="card-image">
-                  <img src="{% static 'assets/img/portfolio/portfolio1.jpg' %}" alt="Patient Management System">
-                </div>
-                <div class="card-content">
-                  <h5>E-Commerce</h5>
-                  <p>This E-Commerce platform offers a seamless
-                      shopping experience with features like product browsing, a secure
-                      checkout process, and user account management. Customers can easily search for products,
-                      add them to their cart, and make purchases, all within an intuitive interface.</p>
-                  <div class="login-info">
-
-                  </div>
-                  <a href="https://ekaidoo33.pythonanywhere.com/" target="_blank" class="view-project-btn">View Project</a>
-                </div>
-              </div>
+<div id="portfolio" class="container">
+  <div class="row">
+    {% for project in projects %}
+      <div class="col-md-6 col-lg-4 mb-4 d-flex align-items-stretch">
+        <div class="portfolio-card w-100">
+          <div class="card-image-container">
+            <img src="{% static 'assets/img/portfolio/portfolio1.jpg' %}" alt="{{ project.title }}" class="card-image">
+            <div class="card-badge">PRO</div>
           </div>
 
+          <div class="card-body d-flex flex-column">
+            <h3 class="card-title">
+              <span class="trademark">{{ project.title }}</span>
+            </h3>
+            <p class="card-description">{{ project.brief_description }}</p>
 
-<!-- book app -->
-          <div class="portfolio-section">
-              <div class="card">
-                <div class="card-image">
-                  <img src="{% static 'assets/img/portfolio/portfolio1.jpg' %}" alt="Patient Management System">
-                </div>
-                <div class="card-content">
-                  <h5>Bookr Project</h5>
-                  <p>The Bookr project is a book management
-                      platform where only authorized users can add new books or change book covers. However, anyone can browse the full book list, view book details, and leave reviews or comments.
-                      This ensures both restricted control over content and open community engagement.</p>
-                  <div class="login-info">
+            <div class="card-features">
+              <span class="feature-tag"><i class="fas fa-user-shield"></i> {{ project.tag_1 }}</span>
+              <span class="feature-tag"><i class="fas fa-calendar-check"></i> {{ project.tag_2 }}</span>
+              <span class="feature-tag"><i class="fas fa-database"></i> {{ project.tag_3 }}</span>
+            </div>
 
-                  </div>
-                  <a href="https://aidooemmanuel3kwame.pythonanywhere.com/" target="_blank" class="view-project-btn">View Project</a>
-                </div>
-              </div>
-          </div>
-          
-          
-          
+            <div class="mt-auto card-actions">
+<a href="{{ project.live_link }}" class="action-btn secondary" target="_blank" rel="noopener noreferrer">
+  View Live
+</a>
+
+<a href="{% url 'detail' project.id %}" class="action-btn secondary">
+  <i class="fas fa-info-circle"></i> Details
+</a>
 
 
-
-        <div class="col-lg-12 text-center">
-          <div class="st-portfolio-btn">
-      
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="st-height-b100 st-height-lg-b80"></div>
-  </section>
-  <!-- End Portfolio Seciton -->
+    {% endfor %}
+  </div>
+</div>
 
-  
 
-    
+{% endblock %}
 
- 
 
-  <!-- Start Contact Seciton -->
-  <section id="contact" class="st-dark-bg">
-    <div class="st-height-b100 st-height-lg-b80"></div>
-    <div class="container">
-      <div class="st-section-heading st-style1">
-        <h4 class="st-section-heading-title">CONTACT ME</h4>
-        <h2 class="st-section-heading-subtitle">CONTACT ME</h2>
-      </div>
-      <div class="st-height-b25 st-height-lg-b25"></div>
-    </div>
 
-    <!-- Contact Container -->
-
-    <div class="container">
-      <div class="row">
-       
-        <div class="st-height-b0 st-height-lg-b30"></div>
-
-        <div class="col-lg-6">
-          <div class="st-height-b0 st-height-lg-b40"></div>
-          <h3 class="st-contact-title">Contact Info</h3>
-         
-          <div class="st-contact-info-wrap">
-            <div class="st-single-contact-info">
-              <i class="fas fa-envelope"></i>
-              <div class="st-single-info-details">
-                <h4>Email</h4>
-                <a href="mailto:phevab1@gmail.com">phevab1@gmail.com</a>
-
-              </div>
-            </div>
-            <div class="st-single-contact-info">
-              <i class="fas fa-phone-alt"></i>
-              <div class="st-single-info-details">
-                <h4>Phone</h4>
-                <span>+233 246-875-311</span>
-              </div>
-            </div>
-            
-            
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="st-height-b100 st-height-lg-b80"></div>
-  </section>
-  <!-- End Contact Seciton -->
-
-  <!-- Start Footer Seciton -->
-  <footer>
-    <div class="container">
-      <div class="st-copyright-wrap text-center">
-        
-      </div>
-    </div>
-  </footer>
-  <!-- End Footer Seciton -->
-
-  <!-- Scripts -->
-  <script src="{% static 'assets/js/jquery-1.12.4.min.js' %}"></script>
-  <script src="{% static 'assets/js/jquery.slick.min.js' %}"></script>
-  <script src="{% static 'assets/js/lightgallery.min.js' %}"></script>
-  <script src="{% static 'assets/js/wow.min.js' %}"></script>
-  <script src="{% static 'assets/js/main.js' %}"></script>
-</body>
-
-</html>

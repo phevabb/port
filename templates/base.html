@@ -1,0 +1,620 @@
+{% load custom_TAGS %}
+{% load static %}
+{% get_all_projects as projects %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+  <style>
+
+
+          /* Project Details Styling */
+    .project-details-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        color: #333;
+    }
+
+    /* Hero Section */
+    .project-hero {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+        margin-bottom: 4rem;
+        align-items: center;
+    }
+
+    .hero-content {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .hero-image {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .breadcrumbs {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1rem;
+    }
+
+    .breadcrumbs a {
+        color: #666;
+        text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+        text-decoration: underline;
+    }
+
+    .project-title {
+        font-size: 2.5rem;
+        margin: 0 0 1rem;
+        color: #222;
+        line-height: 1.2;
+    }
+
+    .project-brief {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #444;
+        margin-bottom: 2rem;
+    }
+
+    .project-meta {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+    }
+
+    .project-category {
+        background-color: #f0f0f0;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-weight: 500;
+    }
+
+    .project-updated {
+        color: #666;
+        display: flex;
+        align-items: center;
+    }
+
+    .featured-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    /* Main Content */
+    .project-main {
+        max-width: 800px;
+        margin: 0 auto 4rem;
+    }
+
+    .project-section {
+        margin-bottom: 3rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: #222;
+        position: relative;
+        padding-bottom: 0.5rem;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background-color: #3a86ff;
+    }
+
+    .project-description {
+        line-height: 1.8;
+        font-size: 1.1rem;
+    }
+
+    .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .project-tag {
+        background-color: #f0f6ff;
+        color: #3a86ff;
+        padding: 0.4rem 1rem;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    /* CTA Section */
+    .project-cta {
+        text-align: center;
+        padding: 3rem;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        margin-top: 3rem;
+    }
+
+    .cta-title {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .action-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.8rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        gap: 0.5rem;
+    }
+
+    .action-btn i {
+        font-size: 0.9rem;
+    }
+
+    .action-btn.primary {
+        background-color: #3a86ff;
+        color: white;
+    }
+
+    .action-btn.primary:hover {
+        background-color: #2667d4;
+        transform: translateY(-2px);
+    }
+
+    .action-btn.secondary {
+        background-color: white;
+        color: #3a86ff;
+        border: 1px solid #3a86ff;
+    }
+
+    .action-btn.secondary:hover {
+        background-color: #f0f6ff;
+        transform: translateY(-2px);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .project-hero {
+            flex-direction: column-reverse;
+        }
+
+        .hero-content, .hero-image {
+            width: 100%;
+        }
+
+        .project-title {
+            font-size: 2rem;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.action-btn.secondary:hover {
+    background-color: #0077BE !important;
+    color: white !important;
+  }
+
+
+
+
+
+
+    .action-btn {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.secondary {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.portfolio-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background: white;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-image-container {
+    position: relative;
+    overflow: hidden;
+    height: 180px;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.card-body {
+    padding: 18px;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.trademark {
+    font-size: 0.7em;
+    vertical-align: super;
+    color: #0077b6;
+}
+
+.card-description {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.card-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.feature-tag {
+    background: rgba(0, 119, 182, 0.1);
+    color: #0077b6;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.demo-credentials {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.credentials-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.copy-all-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #0077b6;
+    cursor: pointer;
+    padding: 2px;
+}
+
+.credential-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.credential-row:last-child {
+    border-bottom: none;
+}
+
+.credential-row code {
+    background: #fff;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.copy-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #0077b6;
+    cursor: pointer;
+    padding: 2px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.action-btn.primary {
+    background: #0077b6;
+    color: white;
+    border: none;
+}
+
+.action-btn.primary:hover {
+    background: #0067a6;
+}
+
+.action-btn.secondary {
+    background: white;
+    color: #0077b6;
+    border: 1px solid #0077b6;
+}
+
+.action-btn.secondary:hover {
+    background: rgba(0, 119, 182, 0.05);
+}
+
+@media (max-width: 400px) {
+    .card-actions {
+        flex-direction: column;
+    }
+
+    .card-features {
+        justify-content: center;
+    }
+}
+</style>
+  <!-- Meta Tags -->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Laralink">
+  <!-- Page Title -->
+  <title>Emmanuel - Personal Portfolio</title>
+  <!-- Favicon Icon -->
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/lightgallery.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+</head>
+
+<body id="home">
+  <!-- Start Header Section -->
+  <header class="st-site-header st-style1 st-sticky-header st-transparent-header">
+    <div class="st-main-header">
+      <div class="container">
+        <div class="st-main-header-in">
+
+          <div style="margin-left: 1rem"></div>
+            <div class="st-nav">
+              <ul class="st-nav-list st-onepage-nav">
+                <li><a href="#home" class="st-smooth-move">Home</a></li>
+                <li><a href="#about" class="st-smooth-move">About</a></li>
+                <li><a href="#EXPERTISE" class="st-smooth-move">EXPERTISE</a></li>
+                <li><a href="#skill" class="st-smooth-move">Skill</a></li>
+
+                <li><a href="#portfolio" class="st-smooth-move">Portfolio</a></li>
+
+                <li><a href="#contact" class="st-smooth-move">Contact</a></li>
+              </ul>
+
+            </div>
+            <div style="margin-left: 1rem"></div>
+
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- End Header Section -->
+
+  <!-- Start Hero Seciton -->
+  <section class="st-hero st-style2 st-bg st-dynamic-bg" data-src='{% static 'assets/img/hero-bg-2.jpg' %}'>
+    <div class="container">
+      <div class="st-hero-text">
+        <h1>Hi, I am <span>Emmanuel Aidoo</span></h1>
+        <p>I am a Python Django Developer with extensive experience in creating and maintaining dynamic web applications.<br>
+I excel at utilizing Django's framework to deliver scalable and efficient solutions, integrating APIs, and optimizing performance.<br>
+My strong background in Python, combined with my ability to work collaboratively with teams, allows me to produce high-quality code and contribute effectively to project success.<br>
+</p>
+
+        <div class="st-hero-social-links">
+
+          <a href="https://github.com/phevabb" class="st-social-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
+    <svg x="0px" y="0px" viewBox="0 186.5 1920 113.5" class="st-hero-shape">
+      <polygon points="-30,300 355.167,210.5 1432.5,290 1920,198.5 1920,300"></polygon>
+    </svg>
+  </section>
+  <!-- End Hero Seciton ------------------------->
+
+
+
+
+
+{% block content %}{% endblock %}
+
+
+  <!-- Start Contact Seciton ------------------------>
+  <section id="contact" class="st-dark-bg">
+    <div class="st-height-b100 st-height-lg-b80"></div>
+    <div class="container">
+      <div class="st-section-heading st-style1">
+        <h4 class="st-section-heading-title">CONTACT ME</h4>
+        <h2 class="st-section-heading-subtitle">CONTACT ME</h2>
+      </div>
+      <div class="st-height-b25 st-height-lg-b25"></div>
+    </div>
+
+    <!-- Contact Container ---------------------------->
+
+    <div class="container">
+      <div class="row">
+
+        <div class="st-height-b0 st-height-lg-b30"></div>
+
+        <div class="col-lg-6">
+          <div class="st-height-b0 st-height-lg-b40"></div>
+          <h3 class="st-contact-title">Contact Info</h3>
+
+          <div class="st-contact-info-wrap">
+            <div class="st-single-contact-info">
+              <i class="fas fa-envelope"></i>
+              <div class="st-single-info-details">
+                <h4>Email</h4>
+                <a href="mailto:phevab1@gmail.com">phevab1@gmail.com</a>
+
+              </div>
+            </div>
+            <div class="st-single-contact-info">
+              <i class="fas fa-phone-alt"></i>
+              <div class="st-single-info-details">
+                <h4>Phone</h4>
+                <span>+233 246-875-311 / +233 535-039-521</span>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="st-height-b100 st-height-lg-b80"></div>
+  </section>
+  <!-- End Contact Seciton -->
+
+  <!-- Start Footer Seciton -->
+  <footer>
+    <div class="container">
+      <div class="st-copyright-wrap text-center">
+
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer Seciton -->
+
+  <!-- Scripts -->
+  <script src="{% static 'assets/js/jquery-1.12.4.min.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.slick.min.js' %}"></script>
+  <script src="{% static 'assets/js/lightgallery.min.js' %}"></script>
+  <script src="{% static 'assets/js/wow.min.js' %}"></script>
+  <script src="{% static 'assets/js/main.js' %}"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Copy functionality for individual credentials
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const id = this.getAttribute('data-id');
+            const pw = this.getAttribute('data-pw');
+            navigator.clipboard.writeText(`ID: ${id}\nPassword: ${pw}`);
+
+            // Visual feedback
+            const originalHtml = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-check"></i>';
+            setTimeout(() => {
+                this.innerHTML = originalHtml;
+            }, 2000);
+        });
+    });
+
+    // Copy all credentials
+    document.querySelector('.copy-all-btn').addEventListener('click', function() {
+        const credentials = [];
+        document.querySelectorAll('.credential-row').forEach(row => {
+            const role = row.querySelector('span').textContent.replace(':', '');
+            const codes = row.querySelectorAll('code');
+            credentials.push(`${role}: ID ${codes[0].textContent} / Password ${codes[1].textContent}`);
+        });
+
+        navigator.clipboard.writeText(credentials.join('\n'));
+
+        // Visual feedback
+        const originalHtml = this.innerHTML;
+        this.innerHTML = '<i class="fas fa-check"></i>';
+        setTimeout(() => {
+            this.innerHTML = originalHtml;
+        }, 2000);
+    });
+});
+</script>
+</body>
+
+</html>
+

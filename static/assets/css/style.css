@@ -36,6 +36,550 @@
 23. Footer
 
 /* Basic styling for portfolio section */
+
+
+    /* Portfolio Section */
+
+.premium-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    position: relative;
+}
+
+.premium-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.card-hover-effects {
+    position: relative;
+    overflow: hidden;
+}
+
+.premium-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 119, 182, 0.85);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-hover-effects:hover .card-overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.tech-tags {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.tech-tags span {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.premium-content {
+    padding: 24px;
+}
+
+.project-header {
+    margin-bottom: 20px;
+}
+
+.project-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.trademark {
+    font-size: 0.7em;
+    vertical-align: super;
+    color: #0077b6;
+}
+
+.project-description {
+    color: #555;
+    line-height: 1.6;
+    margin: 12px 0;
+}
+
+.feature-highlights {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #0077b6;
+    background: rgba(0, 119, 182, 0.1);
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.premium-login {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px 0;
+}
+
+.login-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.login-header h6 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.copy-all {
+    margin-left: auto;
+    cursor: pointer;
+    color: #0077b6;
+}
+
+.login-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.credential {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.role {
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+}
+
+.cred-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+.copy-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #0077b6;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.premium-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.view-live {
+    background: linear-gradient(135deg, #0077b6, #00b4d8);
+    color: white;
+    border: none;
+}
+
+.view-live:hover {
+    background: linear-gradient(135deg, #0067a6, #0094b8);
+    box-shadow: 0 4px 12px rgba(0, 180, 216, 0.3);
+}
+
+.outline {
+    background: white;
+    color: #0077b6;
+    border: 1px solid #0077b6;
+}
+
+.outline:hover {
+    background: rgba(0, 119, 182, 0.05);
+}
+
+@media (max-width: 768px) {
+    .feature-highlights {
+        flex-direction: column;
+    }
+
+    .card-actions {
+        flex-direction: column;
+    }
+}
+
+    .st-portfolio-section {
+      background: #f9f9ff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .st-portfolio-section .st-section-heading {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .st-section-heading-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #7e74f1;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .st-section-heading-subtitle {
+      font-size: 36px;
+      font-weight: 700;
+      color: #101010;
+      margin-bottom: 15px;
+    }
+
+    .st-section-heading-separator {
+      display: flex;
+      justify-content: center;
+    }
+
+    .st-separator {
+      height: 3px;
+      width: 80px;
+      border-radius: 3px;
+    }
+
+    .st-separator-gradient {
+      background: linear-gradient(90deg, #7e74f1 0%, #7e74f1 50%, #7e74f1 100%);
+    }
+
+    /* Portfolio Grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin: 0 auto;
+    }
+
+    .portfolio-card-wrapper {
+      perspective: 1000px;
+    }
+
+    .portfolio-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Card Image */
+    .card-image {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .card-image-main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-card:hover .card-image-main {
+      transform: scale(1.05);
+    }
+
+    .card-image-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      color: white;
+    }
+
+    .card-category {
+      font-size: 12px;
+      font-weight: 600;
+      color: #7e74f1;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-bottom: 5px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 3px 10px;
+      border-radius: 20px;
+      color: #7e74f1;
+    }
+
+    .card-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 5px 0 0;
+      color: white;
+    }
+
+    /* Card Content */
+    .card-content {
+      padding: 25px;
+    }
+
+    .card-tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .tech-tag {
+      font-size: 12px;
+      padding: 4px 12px;
+      background: #f3f1ff;
+      color: #7e74f1;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .card-description {
+      color: #6c757d;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    /* Features */
+    .card-features {
+      margin: 20px 0;
+    }
+
+    .features-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #343a40;
+      margin-bottom: 10px;
+    }
+
+    .card-features ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .card-features li {
+      margin-bottom: 8px;
+      color: #6c757d;
+      font-size: 14px;
+    }
+
+    /* Login Info */
+    .login-info {
+      margin: 20px 0;
+    }
+
+    .login-dropdown {
+      position: relative;
+    }
+
+    .login-toggle {
+      background: #f8f9fa;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      width: 100%;
+      text-align: left;
+      font-weight: 600;
+      color: #495057;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .login-toggle:hover {
+      background: #e9ecef;
+    }
+
+    .login-toggle i {
+      transition: transform 0.3s ease;
+    }
+
+    .login-toggle.active i {
+      transform: rotate(180deg);
+    }
+
+    .login-details {
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 6px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .login-details.active {
+      display: block;
+    }
+
+    .login-role {
+      margin-bottom: 10px;
+    }
+
+    .login-role:last-child {
+      margin-bottom: 0;
+    }
+
+    .role-badge {
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+
+    .role-badge.receptionist {
+      background: #e3f2fd;
+      color: #1976d2;
+    }
+
+    .role-badge.opd {
+      background: #e8f5e9;
+      color: #388e3c;
+    }
+
+    .role-badge.doctor {
+      background: #f3e5f5;
+      color: #8e24aa;
+    }
+
+    /* Card Actions */
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .view-project-btn, .view-details-btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .view-project-btn {
+      background: #7e74f1;
+      color: white;
+      border: none;
+      text-decoration: none;
+    }
+
+    .view-project-btn:hover {
+      background: #6a5fcf;
+      transform: translateY(-2px);
+    }
+
+    .view-details-btn {
+      background: white;
+      color: #7e74f1;
+      border: 1px solid #7e74f1;
+      cursor: pointer;
+    }
+
+    .view-details-btn:hover {
+      background: #f3f1ff;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .st-section-heading-subtitle {
+        font-size: 28px;
+      }
+
+      .card-actions {
+        flex-direction: column;
+      }
+    }
+
 .portfolio-section {
   display: flex;
   flex-wrap: wrap;
