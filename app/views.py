@@ -4,8 +4,12 @@ from app.models import Project
 
 
 # Create your views here.
+# views.py
+from django.db.models.functions import Lower
+
 def index(request):
-    return render(request, 'index.html')
+    projects = Project.objects.all().order_by(Lower('title'))
+    return render(request, 'index.html', {'projects': projects})
 
 
 def detail(request, id=id):
