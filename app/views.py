@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from app.models import Project
 
@@ -12,7 +12,12 @@ def index(request):
     return render(request, 'index.html', {'projects': projects})
 
 
-def detail(request, id=id):
-    project = Project.objects.get(id=id)
-    context = {'project': project}
-    return render(request, 'detail.html', context=context)
+def detail(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    tech_list = [tech.strip() for tech in project.tech_used.split(',')]
+    return render(request, 'detail.html', {
+        'project': project,
+        'tech_list': tech_list,
+    })
+
+

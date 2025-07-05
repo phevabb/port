@@ -20,9 +20,11 @@ class Project(models.Model):
     live_link = models.URLField(null=True, blank=True)
     title = models.CharField(max_length=200, null=True, blank=True, verbose_name="Project Title")
     description = models.TextField(null=True, blank=True, verbose_name="Detailed Project Description")
+    project_overview = models.TextField(null=True, blank=True, verbose_name="Project Overview")
     tag_1 = models.CharField(max_length=200, null=True, blank=True, verbose_name="Project Tag 1")
     tag_2 = models.CharField(max_length=200, null=True, blank=True, verbose_name="Project Tag 2")
     tag_3 = models.CharField(max_length=200, null=True, blank=True, verbose_name="Project Tag 3")
+    tech_used = models.TextField(null=True, blank=True, verbose_name="Tech Use")
 
     def __str__(self):
         return self.title
