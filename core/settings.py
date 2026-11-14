@@ -81,22 +81,37 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-tmpPostgres = config('DATABASE_URL')
+# tmpPostgres = config('DATABASE_URL')
 
-parsed_url = urlparse(tmpPostgres)
+# parsed_url = urlparse(tmpPostgres)
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': parsed_url.path[1:],  # remove leading '/'
+#         'USER': parsed_url.username,
+#         'PASSWORD': parsed_url.password,
+#         'HOST': parsed_url.hostname,
+#         'PORT': parsed_url.port or 5432,
+#         'OPTIONS': dict(parse_qsl(parsed_url.query)),
+#     }
+# }
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': parsed_url.path[1:],  # remove leading '/'
-        'USER': parsed_url.username,
-        'PASSWORD': parsed_url.password,
-        'HOST': parsed_url.hostname,
-        'PORT': parsed_url.port or 5432,
-        'OPTIONS': dict(parse_qsl(parsed_url.query)),
+        'NAME': 'portfolio_db',
+        'USER': 'neondb_owner',
+        'PASSWORD': 'npg_XUDbcHhruY23',
+        'HOST': 'ep-young-base-a8r6910u-pooler.eastus2.azure.neon.tech',
+        'PORT': 5432,
+        'OPTIONS': {
+            'sslmode': 'require',
+            'channel_binding': 'require',
+        },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
